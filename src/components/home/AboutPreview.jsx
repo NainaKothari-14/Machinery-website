@@ -1,49 +1,72 @@
 import { Link } from "react-router-dom";
-import { FaCheck } from "react-icons/fa";
-import { companyInfo } from "../../data/companyInfo";
-
-const points = [
-  "Pharma-grade sealing & packaging machines",
-  "Custom output for your bottle size",
-  "Installation & operator training",
-];
+import { FaCheck, FaInstagram } from "react-icons/fa";
+import { company } from "../../content/company";
+import { getAssetSrc } from "../../content/helpers";
+import { homeContent } from "../../content/home";
+import { getActivePosts } from "../../content/posts";
+import MediaImage from "../common/MediaImage";
+import PostsGrid from "../common/PostsGrid";
 
 function AboutPreview() {
-  const years =
-    companyInfo.foundedYear
-      ? `${new Date().getFullYear() - companyInfo.foundedYear}+`
-      : "25+";
+  const { about } = homeContent;
+  const years = company.foundedYear
+    ? `${new Date().getFullYear() - company.foundedYear}+`
+    : "35+";
+  const posts = about.showPostsPreview
+    ? getActivePosts(about.postsPreviewLimit)
+    : [];
+  const aboutImageSrc = getAssetSrc(about.localImage);
+  const hasPosts = posts.length > 0;
+  const hasImage = Boolean(aboutImageSrc);
 
   return (
     <section className="section-light section-padding overflow-hidden">
-      <div className="container-main grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-        <div className="relative">
-          <img
-            src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=900&q=80"
-            alt="Our workshop"
-            className="w-full object-cover shadow-lg h-72 sm:h-96 lg:h-[480px]"
-          />
-          <div className="absolute -bottom-4 -right-4 stat-yellow-box shadow-xl sm:-bottom-6 sm:-right-6">
-            <p className="font-display text-4xl font-bold text-black sm:text-5xl">
-              {years}
-            </p>
-            <p className="text-xs font-bold uppercase tracking-wider text-black/80">
-              Years of experience
-            </p>
+      <div
+        className={`container-main grid items-center gap-10 ${
+          hasPosts || hasImage ? "lg:grid-cols-2 lg:gap-16" : "max-w-3xl"
+        }`}
+      >
+        {hasPosts && (
+          <div>
+            <PostsGrid posts={posts} columns={hasPosts.length > 2 ? 2 : 2} />
+            <a
+              href={company.profiles.instagram}
+              target="_blank"
+              rel="noreferrer"
+              className="btn-dark mt-6 inline-flex w-full items-center justify-center gap-2 sm:w-auto"
+            >
+              <FaInstagram /> Follow on Instagram
+            </a>
           </div>
-        </div>
+        )}
 
-        <div>
-          <span className="eyebrow-light">About company</span>
+        {hasImage && !hasPosts && (
+          <div className="relative">
+            <MediaImage
+              src={aboutImageSrc}
+              alt={about.localImage.alt}
+              className="h-72 w-full object-cover shadow-lg sm:h-96 lg:h-[480px]"
+            />
+            <div className="absolute -bottom-4 -right-4 stat-yellow-box shadow-xl sm:-bottom-6 sm:-right-6">
+              <p className="font-display text-4xl font-bold text-black sm:text-5xl">
+                {years}
+              </p>
+              <p className="text-xs font-bold uppercase tracking-wider text-black/80">
+                Years of experience
+              </p>
+            </div>
+          </div>
+        )}
+
+        <div className={hasPosts && !hasImage ? "" : ""}>
+          <span className="eyebrow-light">{about.eyebrow}</span>
           <div className="yellow-bar mt-4" />
-          <h2 className="heading-section mt-4 text-surface-900">
-            Leading pharma machinery manufacturer
-          </h2>
+          <h2 className="heading-section mt-4 text-surface-900">{about.title}</h2>
           <p className="mt-5 text-sm leading-relaxed sm:text-base">
-            {companyInfo.shortDescription}
+            {company.shortDescription}
           </p>
           <ul className="mt-6 space-y-3">
-            {points.map((point) => (
+            {about.points.map((point) => (
               <li key={point} className="flex items-start gap-3 text-sm">
                 <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center bg-brand-500 text-[10px] text-black">
                   <FaCheck />
@@ -52,9 +75,21 @@ function AboutPreview() {
               </li>
             ))}
           </ul>
-          <Link to="/about" className="btn-dark mt-8 w-full sm:w-auto">
-            More about us
-          </Link>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Link to={about.button.link} className="btn-dark w-full sm:w-auto">
+              {about.button.label}
+            </Link>
+            {!hasPosts && (
+              <a
+                href={company.profiles.instagram}
+                target="_blank"
+                rel="noreferrer"
+                className="btn-outline-light inline-flex w-full items-center justify-center gap-2 sm:w-auto"
+              >
+                <FaInstagram /> Instagram
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </section>

@@ -1,11 +1,11 @@
 import { createContext, useContext } from "react";
-import { companyInfo } from "../data/companyInfo";
+import { siteContent } from "../content";
 
-const WebsiteContext = createContext({ companyInfo });
+const WebsiteContext = createContext(siteContent);
 
 export function WebsiteProvider({ children }) {
   return (
-    <WebsiteContext.Provider value={{ companyInfo }}>
+    <WebsiteContext.Provider value={siteContent}>
       {children}
     </WebsiteContext.Provider>
   );

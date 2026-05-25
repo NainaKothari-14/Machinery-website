@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { FaEnvelope, FaMapMarkerAlt, FaPhone, FaWhatsapp } from "react-icons/fa";
-import { companyInfo } from "../../data/companyInfo";
-import { NAV_LINKS } from "../../utils/constants";
+import SocialLinks from "../common/SocialLinks";
+import { company } from "../../content/company";
+import { navLinks } from "../../content/navigation";
 
 function Footer() {
   const year = new Date().getFullYear();
@@ -16,14 +17,20 @@ function Footer() {
             </span>
             <div>
               <h3 className="font-display text-lg font-bold uppercase text-white">
-                {companyInfo.name}
+                {company.name}
               </h3>
               <p className="text-[10px] uppercase tracking-widest text-gray-600">
                 Pharma packaging
               </p>
             </div>
           </div>
-          <p className="mt-4 text-sm leading-relaxed">{companyInfo.shortDescription}</p>
+          <p className="mt-4 text-sm leading-relaxed">{company.shortDescription}</p>
+          <div className="mt-6">
+            <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-gray-600">
+              Follow us
+            </p>
+            <SocialLinks variant="dark" />
+          </div>
         </div>
 
         <div className="lg:col-span-3">
@@ -31,7 +38,7 @@ function Footer() {
             Quick links
           </h4>
           <ul className="space-y-2.5">
-            {NAV_LINKS.map((link) => (
+            {navLinks.map((link) => (
               <li key={link.path}>
                 <Link to={link.path} className="text-sm transition hover:text-brand-500">
                   {link.label}
@@ -47,31 +54,37 @@ function Footer() {
           </h4>
           <ul className="space-y-3 text-sm">
             <li>
-              <a href={`tel:${companyInfo.phone.replace(/\s/g, "")}`} className="flex gap-3 hover:text-brand-500">
-                <FaPhone className="mt-0.5 shrink-0 text-brand-500" />
-                {companyInfo.phoneDisplay}
-              </a>
-            </li>
-            <li>
-              <a href={`mailto:${companyInfo.email}`} className="flex gap-3 break-all hover:text-brand-500 sm:break-normal">
-                <FaEnvelope className="mt-0.5 shrink-0 text-brand-500" />
-                {companyInfo.email}
+              <a
+                href={`tel:${company.phone.replace(/\s/g, "")}`}
+                className="flex gap-3 hover:text-brand-500"
+              >
+                <FaPhone className="shrink-0 text-brand-500" />
+                {company.phoneDisplay}
               </a>
             </li>
             <li>
               <a
-                href={`https://wa.me/${companyInfo.whatsapp}`}
+                href={`mailto:${company.email}`}
+                className="flex gap-3 break-all hover:text-brand-500 sm:break-normal"
+              >
+                <FaEnvelope className="shrink-0 text-brand-500" />
+                {company.email}
+              </a>
+            </li>
+            <li>
+              <a
+                href={`https://wa.me/${company.whatsapp}`}
                 target="_blank"
                 rel="noreferrer"
                 className="flex gap-3 hover:text-brand-500"
               >
-                <FaWhatsapp className="mt-0.5 shrink-0 text-brand-500" />
+                <FaWhatsapp className="shrink-0 text-brand-500" />
                 WhatsApp
               </a>
             </li>
             <li className="flex gap-3">
-              <FaMapMarkerAlt className="mt-0.5 shrink-0 text-brand-500" />
-              {companyInfo.address}
+              <FaMapMarkerAlt className="shrink-0 text-brand-500" />
+              {company.address}
             </li>
           </ul>
         </div>
@@ -79,8 +92,10 @@ function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-main flex flex-col items-center justify-between gap-2 py-5 text-center text-xs uppercase tracking-wider sm:flex-row sm:text-left">
-          <p>© {year} {companyInfo.name}</p>
-          <p className="text-gray-600">{companyInfo.workingHours}</p>
+          <p>
+            © {year} {company.name}
+          </p>
+          <p className="text-gray-600">{company.workingHours}</p>
         </div>
       </div>
     </footer>

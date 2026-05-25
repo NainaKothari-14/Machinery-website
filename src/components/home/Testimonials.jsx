@@ -1,16 +1,17 @@
 import { FaQuoteLeft } from "react-icons/fa";
-import { testimonials } from "../../data/testimonials";
+import { homeContent } from "../../content/home";
+import { testimonials } from "../../content/testimonials";
 
 function Testimonials() {
+  const { testimonials: copy } = homeContent;
+
   return (
     <section className="section-muted section-padding">
       <div className="container-main">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="eyebrow-light mx-auto">Testimonials</span>
+          <span className="eyebrow-light mx-auto">{copy.eyebrow}</span>
           <div className="yellow-bar mx-auto mt-4" />
-          <h2 className="heading-section mt-4 text-surface-900">
-            What our clients say
-          </h2>
+          <h2 className="heading-section mt-4 text-surface-900">{copy.title}</h2>
         </div>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:mt-14">

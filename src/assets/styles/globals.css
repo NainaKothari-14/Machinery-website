@@ -151,6 +151,32 @@
     clip-path: polygon(0 0, 100% 0, 88% 100%, 0% 100%);
   }
 
+  /* Figma-style full-bleed hero */
+  .hero-figma-overlay {
+    background: linear-gradient(
+      105deg,
+      rgba(0, 0, 0, 0.82) 0%,
+      rgba(0, 0, 0, 0.55) 45%,
+      rgba(0, 0, 0, 0.35) 100%
+    );
+  }
+
+  .btn-hero-primary {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-white px-8 py-3.5 text-sm font-bold uppercase tracking-wide text-black transition hover:bg-brand-500;
+  }
+
+  .btn-hero-secondary {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border-2 border-white/40 bg-transparent px-8 py-3.5 text-sm font-bold uppercase tracking-wide text-white transition hover:border-white hover:bg-white/10;
+  }
+
+  .nav-glass-pill {
+    @apply border border-white/20 bg-white/10 shadow-lg backdrop-blur-md;
+  }
+
+  .btn-nav-quote {
+    @apply inline-flex min-h-9 items-center justify-center rounded-full bg-white px-5 py-2 text-xs font-bold uppercase tracking-wide text-black transition hover:bg-brand-500;
+  }
+
   .yellow-bar {
     @apply h-1 w-16 bg-brand-500 sm:w-20;
   }

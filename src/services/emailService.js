@@ -1,8 +1,8 @@
-import { companyInfo } from "../data/companyInfo";
+import { company } from "../content/company";
 
 export function sendContactEmail(formData) {
   const subject = encodeURIComponent(
-    `Inquiry from ${formData.name} — ${companyInfo.name}`,
+    `Inquiry from ${formData.name} — ${company.name}`,
   );
   const body = encodeURIComponent(
     [
@@ -15,5 +15,5 @@ export function sendContactEmail(formData) {
     ].join("\n"),
   );
 
-  window.location.href = `mailto:${companyInfo.email}?subject=${subject}&body=${body}`;
+  window.location.href = `mailto:${company.email}?subject=${subject}&body=${body}`;
 }

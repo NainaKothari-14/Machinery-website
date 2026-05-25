@@ -1,15 +1,16 @@
-import { processSteps } from "../../data/testimonials";
+import { homeContent } from "../../content/home";
+import { processSteps } from "../../content/testimonials";
 
 function ProcessSteps() {
+  const { process } = homeContent;
+
   return (
     <section className="section-light section-padding">
       <div className="container-main">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="eyebrow-light mx-auto">Work process</span>
+          <span className="eyebrow-light mx-auto">{process.eyebrow}</span>
           <div className="yellow-bar mx-auto mt-4" />
-          <h2 className="heading-section mt-4 text-surface-900">
-            How we work with you
-          </h2>
+          <h2 className="heading-section mt-4 text-surface-900">{process.title}</h2>
         </div>
 
         <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4">

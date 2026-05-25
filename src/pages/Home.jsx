@@ -7,16 +7,19 @@ import FeaturedMachines from "../components/home/FeaturedMachines";
 import ProcessSteps from "../components/home/ProcessSteps";
 import WhyChooseUs from "../components/home/WhyChooseUs";
 import Testimonials from "../components/home/Testimonials";
-import DemoVideos from "../components/home/DemoVideos";
+import VideoTeaser from "../components/home/VideoTeaser";
 import CtaBand from "../components/home/CtaBand";
-import { companyInfo } from "../data/companyInfo";
+import { company } from "../content/company";
+import { homeContent } from "../content/home";
 
 function Home() {
+  const showVideoTeaser = !homeContent.videos.showOnHome;
+
   return (
     <>
       <PageMeta
         title="Home"
-        description={`${companyInfo.name} — ${companyInfo.tagline}`}
+        description={`${company.name} — ${company.tagline}`}
       />
       <Hero />
       <TrustStrip />
@@ -26,7 +29,7 @@ function Home() {
       <ProcessSteps />
       <WhyChooseUs />
       <Testimonials />
-      <DemoVideos />
+      {showVideoTeaser && <VideoTeaser />}
       <CtaBand />
     </>
   );

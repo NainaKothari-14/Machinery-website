@@ -1,10 +1,10 @@
-import { companyInfo } from "../data/companyInfo";
+import { company } from "../content/company";
 
 export function getPageTitle(page) {
-  if (!page) return companyInfo.name;
-  return `${page} | ${companyInfo.name}`;
+  if (!page) return company.name;
+  return `${page} | ${company.name}`;
 }
 
 export function getDefaultDescription() {
-  return companyInfo.shortDescription;
+  return company.shortDescription;
 }

@@ -3,7 +3,8 @@ import { useSearchParams } from "react-router-dom";
 import PageMeta from "../components/common/PageMeta";
 import PageBanner from "../components/common/PageBanner";
 import MachineGrid from "../components/machine/MachineGrid";
-import { machineCategories, machines } from "../data/machines";
+import { machineCategories, machines } from "../content/machines";
+import { pageMeta } from "../content/navigation";
 
 function Machines() {
   const [searchParams] = useSearchParams();
@@ -22,19 +23,21 @@ function Machines() {
     return machines.filter((m) => m.category === category);
   }, [category]);
 
+  const meta = pageMeta.machines;
+
   return (
     <>
       <PageMeta title="Machines" />
       <PageBanner
-        eyebrow="Catalog"
-        title="Our machines"
-        description="Browse sealing, capping, labeling and filling equipment."
+        eyebrow={meta.eyebrow}
+        title={meta.title}
+        description={meta.description}
         breadcrumbs={[{ label: "Machines" }]}
       />
 
       <section className="section-dark section-padding">
         <div className="container-main">
-          <div className="-mx-1 mb-8 flex gap-2 overflow-x-auto pb-2 sm:flex-wrap sm:justify-center sm:overflow-visible">
+          <div className="-mx-1 mb-8 flex gap-2 overflow-x-auto pb-2 sm:flex-wrap sm:justify-center">
             {machineCategories.map((cat) => (
               <button
                 key={cat}

@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { FaArrowRight, FaPlus } from "react-icons/fa";
+import { getMachineImage } from "../../content/machines";
 import { getQuoteWhatsAppMessage, openWhatsApp } from "../../services/whatsappService";
+import MediaImage from "../common/MediaImage";
 
 function MachineCard({ machine, variant = "dark" }) {
   const isDark = variant === "dark";
@@ -9,7 +11,7 @@ function MachineCard({ machine, variant = "dark" }) {
     <article className={`group card-project ${isDark ? "" : "border border-gray-200"}`}>
       <Link to={`/machines/${machine.id}`} className="relative block aspect-[4/3] overflow-hidden">
         <img
-          src={machine.image}
+          src={getMachineImage(machine)}
           alt={machine.name}
           className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
         />
