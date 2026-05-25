@@ -20,11 +20,12 @@ function Footer() {
                 {company.name}
               </h3>
               <p className="text-[10px] uppercase tracking-widest text-gray-600">
-                Pharma packaging
+                {company.city}, Maharashtra
               </p>
             </div>
           </div>
-          <p className="mt-4 text-sm leading-relaxed">{company.shortDescription}</p>
+          <p className="mt-4 text-sm leading-relaxed">{company.footerBlurb}</p>
+          <p className="mt-2 text-sm text-gray-500">{company.addressShort}</p>
           <div className="mt-6">
             <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-gray-600">
               Follow us
@@ -50,12 +51,12 @@ function Footer() {
 
         <div className="lg:col-span-5">
           <h4 className="mb-4 font-display text-sm font-bold uppercase tracking-wider text-brand-500">
-            Contact info
+            Contact
           </h4>
           <ul className="space-y-3 text-sm">
             <li>
               <a
-                href={`tel:${company.phone.replace(/\s/g, "")}`}
+                href={`tel:${company.phone}`}
                 className="flex gap-3 hover:text-brand-500"
               >
                 <FaPhone className="shrink-0 text-brand-500" />
@@ -65,7 +66,7 @@ function Footer() {
             <li>
               <a
                 href={`mailto:${company.email}`}
-                className="flex gap-3 break-all hover:text-brand-500 sm:break-normal"
+                className="flex gap-3 break-all hover:text-brand-500"
               >
                 <FaEnvelope className="shrink-0 text-brand-500" />
                 {company.email}
@@ -84,7 +85,7 @@ function Footer() {
             </li>
             <li className="flex gap-3">
               <FaMapMarkerAlt className="shrink-0 text-brand-500" />
-              {company.address}
+              <span>{company.address}</span>
             </li>
           </ul>
         </div>

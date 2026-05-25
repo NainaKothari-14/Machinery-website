@@ -1,6 +1,5 @@
 /**
  * SITE CONTENT — single entry point
- * Edit files in src/content/ only. UI reads from here automatically.
  */
 export { company, companyInfo } from "./company";
 export {
@@ -11,48 +10,46 @@ export {
   getMachineImage,
   getMachineDetailMedia,
 } from "./machines";
-export { services } from "./services";
+export { whatWeDo } from "./whatWeDo";
+export { whyChooseUs } from "./whyChooseUs";
 export {
   galleryImages,
   galleryVideos,
-  getGalleryImageSrc,
+  galleryCategories,
   hasGalleryPhotos,
   hasGalleryVideos,
   nextGalleryImageId,
 } from "./gallery";
+export { homeContent, getHeroBackground } from "./home";
 export { posts, getActivePosts, hasActivePosts, getPostImageSrc } from "./posts";
+export { navLinks, pageMeta, socials } from "./navigation";
 export {
+  youtubeEmbed,
+  youtubeThumbnail,
   contentAsset,
   isAssetReady,
   getAssetSrc,
-  machineryVisuals,
-  getCategoryVisual,
 } from "./helpers";
-export { homeContent, getHeroBackground, getHeroFeaturedMachine } from "./home";
-export { testimonials, trustBadges, processSteps } from "./testimonials";
-export { navLinks, pageMeta, socials } from "./navigation";
-export { youtubeEmbed, youtubeThumbnail, localImage, padNumber } from "./helpers";
 
 import { company } from "./company";
-import { navLinks } from "./navigation";
+import { navLinks, pageMeta, socials } from "./navigation";
 import { machines } from "./machines";
-import { services } from "./services";
+import { whatWeDo } from "./whatWeDo";
 import { galleryImages, galleryVideos } from "./gallery";
 import { homeContent } from "./home";
-import { testimonials, processSteps, trustBadges } from "./testimonials";
-import { pageMeta, socials } from "./navigation";
+import { whyChooseUs } from "./whyChooseUs";
+import { posts } from "./posts";
 
 export const siteContent = {
   company,
   navLinks,
   machines,
-  services,
+  whatWeDo,
   galleryImages,
   galleryVideos,
   home: homeContent,
-  testimonials,
-  processSteps,
-  trustBadges,
+  whyChooseUs,
+  posts,
   pageMeta,
   socials,
 };

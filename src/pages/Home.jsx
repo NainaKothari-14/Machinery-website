@@ -2,34 +2,27 @@ import PageMeta from "../components/common/PageMeta";
 import Hero from "../components/home/Hero";
 import TrustStrip from "../components/home/TrustStrip";
 import AboutPreview from "../components/home/AboutPreview";
-import ServicesStrip from "../components/home/ServicesStrip";
+import WhatWeDo from "../components/home/WhatWeDo";
 import FeaturedMachines from "../components/home/FeaturedMachines";
-import ProcessSteps from "../components/home/ProcessSteps";
-import WhyChooseUs from "../components/home/WhyChooseUs";
-import Testimonials from "../components/home/Testimonials";
-import VideoTeaser from "../components/home/VideoTeaser";
+import MachinesInOperation from "../components/home/MachinesInOperation";
+import WhyChooseUsCards from "../components/home/WhyChooseUsCards";
 import CtaBand from "../components/home/CtaBand";
 import { company } from "../content/company";
-import { homeContent } from "../content/home";
 
 function Home() {
-  const showVideoTeaser = !homeContent.videos.showOnHome;
-
   return (
     <>
       <PageMeta
         title="Home"
-        description={`${company.name} — ${company.tagline}`}
+        description={`${company.name} — ${company.tagline}. ${company.city}, Maharashtra.`}
       />
       <Hero />
       <TrustStrip />
       <AboutPreview />
-      <ServicesStrip />
+      <WhatWeDo />
       <FeaturedMachines />
-      <ProcessSteps />
-      <WhyChooseUs />
-      <Testimonials />
-      {showVideoTeaser && <VideoTeaser />}
+      <MachinesInOperation />
+      <WhyChooseUsCards />
       <CtaBand />
     </>
   );
