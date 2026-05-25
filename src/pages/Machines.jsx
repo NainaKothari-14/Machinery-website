@@ -1,0 +1,60 @@
+import { useMemo, useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
+import PageMeta from "../components/common/PageMeta";
+import PageBanner from "../components/common/PageBanner";
+import MachineGrid from "../components/machine/MachineGrid";
+import { machineCategories, machines } from "../data/machines";
+
+function Machines() {
+  const [searchParams] = useSearchParams();
+  const initialCategory = searchParams.get("category") || "All";
+  const [category, setCategory] = useState(
+    machineCategories.includes(initialCategory) ? initialCategory : "All",
+  );
+
+  useEffect(() => {
+    const param = searchParams.get("category");
+    if (param && machineCategories.includes(param)) setCategory(param);
+  }, [searchParams]);
+
+  const filtered = useMemo(() => {
+    if (category === "All") return machines;
+    return machines.filter((m) => m.category === category);
+  }, [category]);
+
+  return (
+    <>
+      <PageMeta title="Machines" />
+      <PageBanner
+        eyebrow="Catalog"
+        title="Our machines"
+        description="Browse sealing, capping, labeling and filling equipment."
+        breadcrumbs={[{ label: "Machines" }]}
+      />
+
+      <section className="section-dark section-padding">
+        <div className="container-main">
+          <div className="-mx-1 mb-8 flex gap-2 overflow-x-auto pb-2 sm:flex-wrap sm:justify-center sm:overflow-visible">
+            {machineCategories.map((cat) => (
+              <button
+                key={cat}
+                type="button"
+                onClick={() => setCategory(cat)}
+                className={`shrink-0 px-4 py-2.5 text-xs font-bold uppercase tracking-wider transition ${
+                  category === cat
+                    ? "bg-brand-500 text-black"
+                    : "border border-white/20 text-gray-400 hover:border-brand-500 hover:text-brand-500"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+          <MachineGrid machines={filtered} variant="dark" />
+        </div>
+      </section>
+    </>
+  );
+}
+
+export default Machines;
