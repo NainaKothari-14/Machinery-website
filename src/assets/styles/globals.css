@@ -16,6 +16,8 @@
   --color-surface-600: #2e2e2e;
   --color-surface-light: #f5f5f5;
   --color-surface-white: #ffffff;
+  --color-accent: #ff6b6b;
+  --color-accent-hover: #ff5252;
   --font-sans: "Inter", system-ui, sans-serif;
   --font-display: "Barlow Condensed", system-ui, sans-serif;
 }
@@ -175,5 +177,18 @@
 
   .text-gradient-yellow {
     @apply text-brand-500;
+  }
+
+  /* Figma services section — coral accent cards on black */
+  .btn-accent-outline {
+    @apply inline-flex min-h-10 items-center justify-center rounded-lg border-2 border-accent bg-white px-6 py-2.5 text-sm font-semibold text-accent transition hover:bg-accent hover:text-white;
+  }
+
+  .btn-accent-solid {
+    @apply inline-flex min-h-10 items-center justify-center rounded-lg bg-accent px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-accent-hover;
+  }
+
+  .service-card {
+    @apply border border-transparent;
   }
 }
