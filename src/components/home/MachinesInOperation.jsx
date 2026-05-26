@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FaPlay } from "react-icons/fa";
+import { FaArrowRight, FaPlay, FaYoutube } from "react-icons/fa";
 import { galleryVideos } from "../../content/gallery";
 import { homeContent } from "../../content/home";
 
@@ -53,6 +53,21 @@ function MachinesInOperation() {
             </a>
           ))}
         </div>
+
+        {machinesInOperation.youtubeLink && (
+          <div className="mt-8 text-center">
+            <a
+              href={machinesInOperation.youtubeLink.url}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 font-display text-sm font-bold uppercase tracking-wider text-brand-600 transition hover:text-brand-700"
+            >
+              <FaYoutube className="text-lg" />
+              {machinesInOperation.youtubeLink.label}
+              <FaArrowRight className="text-xs" />
+            </a>
+          </div>
+        )}
       </div>
     </section>
   );

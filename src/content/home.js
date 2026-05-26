@@ -8,8 +8,9 @@ export const homeContent = {
   hero: {
     headline: company.name,
     line2: "Manufacturer of Pharmaceutical",
-    line3: "Packaging & Sealing Machines",
-    subtitle: company.heroSubtitle,
+    line3: "Packaging & Sealing Machinery",
+    subtitle:
+      "Reliable machinery solutions for efficient production workflows.",
     /** `machine` = product photo on right; `photo` = full-bleed cinematic */
     backgroundStyle: "photo",
     background: null,
@@ -52,11 +53,15 @@ export const homeContent = {
     title: "Watch our machines",
     description: "See equipment running — from our YouTube channel.",
     button: { label: "Full gallery", link: "/gallery#videos" },
+    youtubeLink: {
+      label: "View more on YouTube",
+      url: company.youtube,
+    },
     maxVideos: 3,
   },
 
   cta: {
-    title: "Need a machine for your line?",
+    title: "Need packaging machinery for your production line?",
     description: `Call ${company.phoneDisplay} or message on WhatsApp for price and recommendation.`,
     buttons: {
       primary: { label: "Contact us", link: "/contact" },

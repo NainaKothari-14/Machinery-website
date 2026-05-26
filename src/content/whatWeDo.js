@@ -3,34 +3,34 @@
  */
 export const whatWeDo = {
   eyebrow: "What we do",
-  title: "Industrial solutions for your line",
+  title: "Machinery for your production line",
   items: [
     {
       id: "bottle-sealing",
       title: "Bottle Sealing",
       description:
-        "Cap sealing, foil sealing and hand crowner machines for secure bottle closures.",
+        "Pneumatic cap sealers, foil sealers and hand crowners for secure bottle closures.",
       link: "/machines?category=Sealing",
     },
     {
       id: "packaging",
-      title: "Packaging Solutions",
+      title: "Packaging",
       description:
-        "Blister packaging, cup sealing, shrink wrap and vacuum packaging equipment.",
+        "Blister packs, cup sealing, shrink wrap and vacuum packaging for pharma & FMCG.",
       link: "/machines?category=Packaging",
     },
     {
       id: "custom",
-      title: "Custom Machinery",
+      title: "Custom Machines",
       description:
-        "Machines built to your bottle size, output and specification — pharma & FMCG.",
+        "Built to your bottle size, output and spec — from prototype to production scale.",
       link: "/contact",
     },
     {
       id: "support",
-      title: "Machine Support",
+      title: "Support",
       description:
-        "Installation guidance, spare parts and phone/WhatsApp support when you need help.",
+        "Installation guidance, spare parts and phone/WhatsApp help when you need it.",
       link: "/contact",
     },
   ],

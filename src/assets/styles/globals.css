@@ -154,7 +154,7 @@
   }
 
   .glass-card:hover {
-    @apply -translate-y-1 border-brand-500/25 bg-white/85 shadow-xl shadow-brand-500/15;
+    @apply -translate-y-[4px] border-brand-500/25 bg-white/85 shadow-xl shadow-brand-500/15;
   }
 
   .hover-lift {
@@ -268,7 +268,7 @@
   }
 
   .card-project-dark {
-    @apply relative overflow-hidden rounded-2xl border border-white/10 bg-surface-800 shadow-lg shadow-black/25 ring-1 ring-white/5 transition duration-300 ease-out hover:-translate-y-1 hover:border-brand-500/30 hover:shadow-xl hover:shadow-brand-500/10;
+    @apply relative overflow-hidden rounded-2xl border border-white/10 bg-surface-800 shadow-lg shadow-black/25 ring-1 ring-white/5 transition duration-300 ease-out hover:-translate-y-[4px] hover:border-brand-500/30 hover:shadow-xl hover:shadow-brand-500/10;
   }
 
   .safe-bottom {

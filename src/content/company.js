@@ -11,7 +11,7 @@ export const company = {
   location: "Vasai East, Vasai-Virar, Maharashtra, India",
   tagline: "Packaging machinery solutions",
   heroSubtitle:
-    "Reliable solutions for bottle sealing, packaging and production workflows.",
+    "Reliable machinery solutions for efficient production workflows.",
   footerBlurb:
     "Manufacturer of pharmaceutical packaging and sealing machinery.",
   aboutTitle: "About us",

@@ -9,7 +9,7 @@ function Hero() {
   const machineBg = hero.backgroundStyle === "machine";
 
   return (
-    <section className="relative overflow-hidden bg-surface-900">
+    <section className="relative flex min-h-[75vh] flex-col overflow-hidden bg-surface-900">
       <div
         className="absolute inset-0 bg-gradient-to-br from-surface-950 via-surface-900 to-surface-800"
         aria-hidden
@@ -57,7 +57,7 @@ function Hero() {
         )
       )}
 
-      <div className="container-main relative z-10 py-14 sm:py-16 md:py-20">
+      <div className="container-main relative z-10 flex flex-1 flex-col justify-center py-12 sm:py-14 md:py-16">
         <div className="max-w-xl">
           <span className="inline-block rounded-full border border-brand-500/40 bg-brand-500/15 px-4 py-1.5 text-[11px] font-bold uppercase tracking-widest text-brand-400 animate-fade-up">
             Portable · Efficient · Industrial

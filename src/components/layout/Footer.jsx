@@ -16,10 +16,10 @@ function Footer() {
           <p className="mt-5 text-sm leading-relaxed">{company.footerBlurb}</p>
           <p className="mt-2 text-sm text-gray-500">{company.addressShort}</p>
           <div className="mt-6">
-            <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-gray-500">
+            <p className="mb-4 text-[10px] font-bold uppercase tracking-widest text-gray-500">
               Follow us
             </p>
-            <SocialLinks variant="dark" />
+            <SocialLinks variant="dark" className="gap-4" />
           </div>
         </div>
 

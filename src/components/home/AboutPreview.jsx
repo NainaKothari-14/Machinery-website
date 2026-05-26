@@ -3,6 +3,7 @@ import { FaInstagram } from "react-icons/fa";
 import { company } from "../../content/company";
 import { homeContent } from "../../content/home";
 import { getActivePosts } from "../../content/posts";
+import AboutAside from "../about/AboutAside";
 import PostsGrid from "../common/PostsGrid";
 
 function AboutPreview() {
@@ -12,8 +13,8 @@ function AboutPreview() {
   return (
     <section className="section-light section-padding">
       <div className="container-main">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <div>
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-7">
             <span className="eyebrow-light">{about.eyebrow}</span>
             <div className="yellow-bar mt-4" />
             <h2 className="heading-section mt-4 text-surface-900">{about.title}</h2>
@@ -27,8 +28,8 @@ function AboutPreview() {
             </Link>
           </div>
 
-          {posts.length > 0 && (
-            <div>
+          {posts.length > 0 ? (
+            <div className="lg:col-span-5">
               <PostsGrid posts={posts} columns={2} />
               <a
                 href={company.instagram}
@@ -39,6 +40,8 @@ function AboutPreview() {
                 <FaInstagram /> More on Instagram
               </a>
             </div>
+          ) : (
+            <AboutAside />
           )}
         </div>
       </div>
