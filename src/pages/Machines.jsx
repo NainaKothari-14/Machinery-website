@@ -35,7 +35,7 @@ function Machines() {
         breadcrumbs={[{ label: "Machines" }]}
       />
 
-      <section className="section-dark section-padding">
+      <section className="section-muted section-padding">
         <div className="container-main">
           <div className="-mx-1 mb-8 flex gap-2 overflow-x-auto pb-2 sm:flex-wrap sm:justify-center">
             {machineCategories.map((cat) => (
@@ -43,17 +43,17 @@ function Machines() {
                 key={cat}
                 type="button"
                 onClick={() => setCategory(cat)}
-                className={`shrink-0 px-4 py-2.5 text-xs font-bold uppercase tracking-wider transition ${
+                className={
                   category === cat
-                    ? "bg-brand-500 text-black"
-                    : "border border-white/20 text-gray-400 hover:border-brand-500 hover:text-brand-500"
-                }`}
+                    ? "chip-filter chip-filter-active"
+                    : "chip-filter chip-filter-inactive"
+                }
               >
                 {cat}
               </button>
             ))}
           </div>
-          <MachineGrid machines={filtered} variant="dark" />
+          <MachineGrid machines={filtered} variant="light" />
         </div>
       </section>
     </>

@@ -1,6 +1,6 @@
 import MachineCard from "./MachineCard";
 
-function MachineGrid({ machines, emptyMessage = "No machines found.", variant = "dark" }) {
+function MachineGrid({ machines, emptyMessage = "No machines found.", variant = "light" }) {
   if (!machines.length) {
     return <p className="py-12 text-center text-gray-500">{emptyMessage}</p>;
   }

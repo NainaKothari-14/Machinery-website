@@ -8,7 +8,7 @@ import { company } from "./company";
 const postList = [
   {
     id: "post-pneumatic",
-    enabled: true,
+    enabled: false,
     imageUrl: youtubeThumbnail("_FWkqS8B9F4"),
     image: contentAsset("/images/posts/pneumatic-sealer.jpg", false, "Pneumatic cap sealing"),
     caption: "Pneumatic cap sealing machine — contact us to order for your packaging line.",
@@ -17,7 +17,7 @@ const postList = [
   },
   {
     id: "post-cap-pressing",
-    enabled: true,
+    enabled: false,
     imageUrl: youtubeThumbnail("AFvKFsrHJHU"),
     image: contentAsset("/images/posts/cap-pressing.jpg", false, "Bottle cap pressing"),
     caption: "Bottle cap pressing machine — like & subscribe, contact us to order.",
@@ -26,7 +26,7 @@ const postList = [
   },
   {
     id: "post-cup-sealer",
-    enabled: true,
+    enabled: false,
     imageUrl: youtubeThumbnail("trwjJmsQ2aM"),
     image: contentAsset("/images/posts/cup-sealer.jpg", false, "Cup sealing"),
     caption: "Aluminium foil cup sealing machine — clean seals for food & pharma cups.",
@@ -35,7 +35,7 @@ const postList = [
   },
   {
     id: "post-blister",
-    enabled: true,
+    enabled: false,
     imageUrl: youtubeThumbnail("3BdNJ5-PouU"),
     image: contentAsset("/images/posts/blister-pack.jpg", false, "Blister packaging"),
     caption: "Blister packaging machine — contact to order for tablet & strip packing.",
@@ -44,7 +44,7 @@ const postList = [
   },
   {
     id: "post-cup-indiamart",
-    enabled: true,
+    enabled: false,
     imageUrl: youtubeThumbnail("nKwwvULBeE8"),
     image: contentAsset("/images/posts/cup-indiamart.jpg", false, "Cup sealing machines"),
     caption: "Cup sealing machines — available on IndiaMART. Call or WhatsApp to enquire.",

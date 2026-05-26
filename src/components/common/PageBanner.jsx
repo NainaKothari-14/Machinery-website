@@ -1,18 +1,27 @@
 import Breadcrumbs from "./Breadcrumbs";
 
-function PageBanner({ eyebrow, title, description, breadcrumbs = [] }) {
+function PageBanner({ eyebrow, title, description, breadcrumbs = [], compact = false }) {
   return (
-    <section className="section-dark border-b border-white/10 py-14 sm:py-20 md:py-24">
+    <section
+      className={`section-light border-b border-gray-200/80 bg-white ${
+        compact ? "py-8 sm:py-10" : "py-12 sm:py-16"
+      }`}
+    >
       <div className="container-main">
-        <Breadcrumbs
-          items={[{ label: "Home", href: "/" }, ...breadcrumbs]}
-          dark
-        />
-        {eyebrow && <span className="eyebrow mt-2">{eyebrow}</span>}
-        <div className="yellow-bar mt-4" />
-        <h1 className="heading-section mt-4 max-w-4xl text-white">{title}</h1>
+        <Breadcrumbs items={[{ label: "Home", href: "/" }, ...breadcrumbs]} />
+        {eyebrow && (
+          <>
+            <span className="eyebrow-light mt-4">{eyebrow}</span>
+            <div className="yellow-bar mt-4" />
+          </>
+        )}
+        <h1
+          className={`heading-section max-w-4xl text-surface-900 ${eyebrow ? "mt-4" : "mt-6"}`}
+        >
+          {title}
+        </h1>
         {description && (
-          <p className="mt-4 max-w-2xl text-sm text-gray-400 sm:text-base">
+          <p className="mt-3 max-w-2xl text-sm text-gray-600 sm:text-base">
             {description}
           </p>
         )}

@@ -16,10 +16,7 @@ export const pageMeta = {
       "Browse sealing, capping, labeling and filling equipment. Call or WhatsApp for price.",
   },
   gallery: {
-    eyebrow: "Portfolio",
     title: "Gallery",
-    description:
-      "Machine demos from our YouTube channel — sealing, capping, cup sealing, blister packaging & more.",
   },
   about: {
     eyebrow: "Company",

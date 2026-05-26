@@ -3,7 +3,7 @@ import { company } from "../../content/company";
 
 function TopBar() {
   return (
-    <div className="hidden border-b border-gray-200 bg-surface-900 lg:block">
+    <div className="hidden border-b border-white/10 bg-surface-950 lg:block">
       <div className="container-main flex h-10 items-center justify-between text-[11px] font-medium uppercase tracking-wider text-gray-400">
         <div className="flex items-center gap-8">
           <a

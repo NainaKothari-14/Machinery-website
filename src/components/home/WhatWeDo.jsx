@@ -17,7 +17,7 @@ function WhatWeDo() {
             <Link
               key={item.id}
               to={item.link}
-              className="card-light group flex flex-col border-t-4 border-t-brand-500 p-6 transition hover:shadow-md"
+              className="glass-card group flex flex-col border-t-4 border-t-brand-500 p-6"
             >
               <h3 className="font-display text-lg font-bold uppercase text-surface-900 group-hover:text-brand-600">
                 {item.title}

@@ -39,7 +39,8 @@ const machineList = [
       "Cap pressing machine for secure, uniform bottle closures.",
     description:
       "Bottle cap pressing machine designed for reliable cap application on production lines. Watch our YouTube demo or contact us to order with your bottle and cap specifications.",
-    image: "/images/machines/bottle-cap-pressing.jpg",
+    image: "/images/machines/bottle-cap-pressing.png",
+    imageEnabled: true,
     youtubeId: "AFvKFsrHJHU",
     featured: true,
     specs: [
@@ -58,7 +59,8 @@ const machineList = [
       "Heat-seal aluminium foil on cups and containers for hygienic, tamper-evident closure.",
     description:
       "Aluminium foil cup sealing machine for food, pharma, and dairy-style cup packaging. Delivers clean foil seals with adjustable temperature and dwell settings.",
-    image: "/images/machines/cup-sealing.jpg",
+    image: "/images/machines/cup-sealing.png",
+    imageEnabled: true,
     youtubeId: "trwjJmsQ2aM",
     featured: true,
     specs: [
@@ -115,7 +117,8 @@ const machineList = [
       "Manual foil sealing for bottles and containers — economical entry-level sealing.",
     description:
       "Manual foil sealing machine from our sealing range. Easy to operate, sturdy build, and suitable for units starting bottle sealing operations or running low volumes.",
-    image: "/images/machines/manual-foil-sealing.jpg",
+    image: "/images/machines/manual-foil-sealing.png",
+    imageEnabled: true,
     featured: false,
     specs: [
       { label: "Type", value: "Manual operation" },
@@ -133,7 +136,8 @@ const machineList = [
       "Hand crowner for ROPP and crown caps — widely used in pharma liquid lines.",
     description:
       "Hand crowner sealing machine (hand crown crimping) for applying crown caps on glass and PET bottles. A trusted product in our catalog since decades of manufacturing experience.",
-    image: "/images/machines/hand-crowner.jpg",
+    image: "/images/machines/hand-crowner.png",
+    imageEnabled: true,
     featured: true,
     specs: [
       { label: "Operation", value: "Hand-operated" },
@@ -151,7 +155,8 @@ const machineList = [
       "Bottle capping machines for screw caps — standard and GMP models available.",
     description:
       "Bottle capping machines for pharmaceutical and packaging lines. Options include standard and GMP builds for clean-room friendly operation. Paddle-operated GMP models also available.",
-    image: "/images/machines/bottle-capping.jpg",
+    image: "/images/machines/bottle-capping.png",
+    imageEnabled: true,
     featured: false,
     specs: [
       { label: "Variants", value: "Standard · GMP" },
@@ -292,14 +297,14 @@ const machineList = [
     name: "Screw Cap & PP Cap Sealing Machine",
     category: "Capping",
     shortDescription:
-      "Screw cap and PP cap sealing for bottles — core product since 1990.",
+      "Screw cap and PP cap sealing for bottles — core product since 2003.",
     description:
-      "Screw caps and PP cap sealing machine — among our flagship products since establishment in 1990. Serving Indian and global markets with machines built to your specification and quality controls.",
+      "Screw caps and PP cap sealing machine — among our flagship products since establishment in 2003. Serving Indian and global markets with machines built to your specification and quality controls.",
     image: "/images/machines/screw-pp-capping.jpg",
     featured: false,
     specs: [
       { label: "Caps", value: "Screw · PP" },
-      { label: "Experience", value: "Since 1990" },
+      { label: "Experience", value: "Since 2003" },
       { label: "Supply", value: "Custom specs welcome" },
       { label: "Market", value: "India & export" },
     ],
@@ -340,11 +345,29 @@ export function getMachineImage(machine) {
   return machine.cardImage || "";
 }
 
+/** Detail page: product photo (top) + demo video (below) when available */
 export function getMachineDetailMedia(machine) {
-  if (!machine) return { type: "none" };
-  if (machine.hasVideo) return { type: "video", embedUrl: machine.embedUrl };
-  if (machine.hasPhoto) return { type: "image", src: machine.localImage.path };
-  return { type: "none" };
+  if (!machine) {
+    return {
+      hasPhoto: false,
+      photoSrc: null,
+      hasVideo: false,
+      embedUrl: null,
+      youtubeId: null,
+    };
+  }
+  return {
+    hasPhoto: Boolean(machine.hasPhoto),
+    photoSrc: machine.hasPhoto ? machine.localImage.path : null,
+    hasVideo: Boolean(machine.hasVideo),
+    embedUrl: machine.embedUrl || null,
+    youtubeId: machine.youtubeId || null,
+  };
+}
+
+export function hasMachineDetailMedia(machine) {
+  const media = getMachineDetailMedia(machine);
+  return media.hasPhoto || media.hasVideo;
 }
 
 export function getFeaturedMachines() {

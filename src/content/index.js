@@ -9,16 +9,15 @@ export {
   getFeaturedMachines,
   getMachineImage,
   getMachineDetailMedia,
+  hasMachineDetailMedia,
 } from "./machines";
 export { whatWeDo } from "./whatWeDo";
 export { whyChooseUs } from "./whyChooseUs";
 export {
-  galleryImages,
+  galleryPhotos,
   galleryVideos,
-  galleryCategories,
   hasGalleryPhotos,
   hasGalleryVideos,
-  nextGalleryImageId,
 } from "./gallery";
 export { homeContent, getHeroBackground } from "./home";
 export { posts, getActivePosts, hasActivePosts, getPostImageSrc } from "./posts";
@@ -35,7 +34,7 @@ import { company } from "./company";
 import { navLinks, pageMeta, socials } from "./navigation";
 import { machines } from "./machines";
 import { whatWeDo } from "./whatWeDo";
-import { galleryImages, galleryVideos } from "./gallery";
+import { galleryPhotos, galleryVideos } from "./gallery";
 import { homeContent } from "./home";
 import { whyChooseUs } from "./whyChooseUs";
 import { posts } from "./posts";
@@ -45,7 +44,7 @@ export const siteContent = {
   navLinks,
   machines,
   whatWeDo,
-  galleryImages,
+  galleryPhotos,
   galleryVideos,
   home: homeContent,
   whyChooseUs,

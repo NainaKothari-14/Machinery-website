@@ -3,8 +3,7 @@ import { HelmetProvider } from "react-helmet-async";
 import TopBar from "./components/layout/TopBar";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
-import FloatingWhatsapp from "./components/layout/FloatingWhatsapp";
-import ScrollToTop from "./components/common/ScrollToTop";
+import FloatingActions from "./components/layout/FloatingActions";
 import AppRoutes from "./routes/AppRoutes";
 import { WebsiteProvider } from "./context/WebsiteContext";
 import "./assets/styles/animations.css";
@@ -19,8 +18,7 @@ function App() {
           <AppRoutes />
         </main>
         <Footer />
-        <FloatingWhatsapp />
-        <ScrollToTop />
+        <FloatingActions />
         <Toaster position="top-center" />
       </WebsiteProvider>
     </HelmetProvider>

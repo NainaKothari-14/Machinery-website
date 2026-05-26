@@ -13,40 +13,17 @@ function Gallery() {
   return (
     <>
       <PageMeta title="Gallery" />
-      <PageBanner
-        eyebrow={meta.eyebrow}
-        title={meta.title}
-        description={meta.description}
-        breadcrumbs={[{ label: "Gallery" }]}
-      />
+      <PageBanner title={meta.title} breadcrumbs={[{ label: "Gallery" }]} />
 
       <section className="section-light section-padding">
-        <div className="container-main space-y-16">
-          {showPhotos ? (
-            <div>
-              <span className="eyebrow-light">Photos</span>
-              <div className="yellow-bar mt-4" />
-              <h2 className="heading-section mt-4 text-surface-900">Our work</h2>
-              <div className="mt-8">
-                <ImageGallery />
-              </div>
-            </div>
-          ) : (
-            <p className="mx-auto max-w-lg text-center text-sm text-gray-500">
-              Photo gallery will appear here once images are added to{" "}
-              <code className="text-xs text-brand-600">public/images/gallery/</code>{" "}
-              and enabled in <code className="text-xs text-brand-600">src/content/gallery.js</code>.
-            </p>
-          )}
-
+        <div className="container-main space-y-12">
+          {showPhotos && <ImageGallery />}
           {showVideos && (
-            <div id="videos">
-              <span className="eyebrow-light">Videos</span>
-              <div className="yellow-bar mt-4" />
-              <h2 className="heading-section mt-4 text-surface-900">Machine demos</h2>
-              <div className="mt-8">
-                <VideoGallery />
-              </div>
+            <div
+              id="videos"
+              className={showPhotos ? "border-t border-gray-200 pt-12" : undefined}
+            >
+              <VideoGallery />
             </div>
           )}
         </div>

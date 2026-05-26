@@ -15,7 +15,7 @@ export const whyChooseUs = {
       id: "manufacturing",
       title: "Reliable Manufacturing",
       description:
-        "Manufactured in Vasai East with consistent build quality since 1990.",
+        "Manufactured in Vasai East with consistent build quality since 2003.",
     },
     {
       id: "practical",

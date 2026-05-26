@@ -1,6 +1,6 @@
 export {
-  galleryImages,
+  galleryPhotos,
   galleryVideos,
-  getGalleryImageSrc,
-  nextGalleryImageId,
+  hasGalleryPhotos,
+  hasGalleryVideos,
 } from "../content/gallery";

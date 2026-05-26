@@ -10,9 +10,14 @@ export const homeContent = {
     line2: "Manufacturer of Pharmaceutical",
     line3: "Packaging & Sealing Machines",
     subtitle: company.heroSubtitle,
-    background:
-      "https://images.unsplash.com/photo-1565193566170-24250aa709f4?w=1920&q=85",
-    localBackground: contentAsset("/images/hero/hero-bg.jpg", false, "Workshop"),
+    /** `machine` = product photo on right; `photo` = full-bleed cinematic */
+    backgroundStyle: "photo",
+    background: null,
+    localBackground: contentAsset(
+      "/images/hero/hero-cinematic.png",
+      true,
+      "Industrial machining — hero background",
+    ),
     buttons: {
       primary: { label: "Explore Machines", link: "/machines" },
       secondary: { label: "Contact Us", link: "/contact" },
@@ -29,7 +34,7 @@ export const homeContent = {
     title: company.name,
     paragraphs: company.aboutBody,
     button: { label: "More about us", link: "/about" },
-    showPostsPreview: true,
+    showPostsPreview: false,
     postsPreviewLimit: 3,
     localImage: contentAsset("/images/about/workshop.jpg", false, "Workshop"),
   },

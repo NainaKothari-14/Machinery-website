@@ -1,82 +1,51 @@
 /**
- * GALLERY — YouTube demos + Instagram/local photos by category
- * Categories: Machines | Production | Installation | Workshop
+ * GALLERY — local product photos + YouTube demos (separate sections)
  */
-import {
-  contentAsset,
-  nextGalleryImageId,
-  youtubeEmbed,
-  youtubeThumbnail,
-} from "./helpers";
+import { contentAsset, youtubeEmbed, youtubeThumbnail } from "./helpers";
 
-export const galleryCategories = [
-  "All",
-  "Machines",
-  "Production",
-  "Installation",
-  "Workshop",
-];
-
-const galleryImageList = [
+const galleryPhotoList = [
   {
-    id: 1,
+    id: 7,
     enabled: true,
-    youtubeId: "_FWkqS8B9F4",
-    alt: "Pneumatic cap sealing machine",
-    category: "Machines",
-  },
-  {
-    id: 2,
-    enabled: true,
-    youtubeId: "AFvKFsrHJHU",
+    image: contentAsset("/images/gallery/bottle-cap-pressing.png", true, "Bottle cap pressing machine"),
     alt: "Bottle cap pressing machine",
-    category: "Production",
   },
   {
-    id: 3,
+    id: 8,
     enabled: true,
-    youtubeId: "trwjJmsQ2aM",
-    alt: "Aluminium foil cup sealing machine",
-    category: "Machines",
+    image: contentAsset("/images/gallery/manual-foil-sealing.png", true, "Manual foil sealing machine"),
+    alt: "Manual foil sealing machine",
   },
   {
-    id: 4,
+    id: 9,
     enabled: true,
-    youtubeId: "3BdNJ5-PouU",
-    alt: "Blister packaging machine",
-    category: "Production",
+    image: contentAsset("/images/gallery/hand-crowner.png", true, "Hand crowner sealing machine"),
+    alt: "Hand crowner sealing machine",
   },
   {
-    id: 5,
+    id: 10,
     enabled: true,
-    youtubeId: "nKwwvULBeE8",
-    alt: "Cup sealing machines at work",
-    category: "Installation",
+    image: contentAsset("/images/gallery/bottle-capping.png", true, "Bottle capping machine"),
+    alt: "Bottle capping machine",
   },
   {
-    id: 6,
-    enabled: false,
-    image: contentAsset("/images/gallery/workshop.jpg", false, "Workshop"),
-    alt: "Our workshop",
-    category: "Workshop",
+    id: 11,
+    enabled: true,
+    image: contentAsset("/images/gallery/cup-sealing.png", true, "Cup sealing machine"),
+    alt: "Cup sealing machine",
   },
 ];
 
-export const galleryImages = galleryImageList
-  .filter((item) => item.enabled)
+export const galleryPhotos = galleryPhotoList
+  .filter((item) => item.enabled && item.image?.enabled)
   .map((item) => ({
     id: item.id,
-    alt: item.alt || item.category,
-    category: item.category,
-    src: item.youtubeId ? youtubeThumbnail(item.youtubeId) : item.image?.path,
-    youtubeId: item.youtubeId,
-    link: item.youtubeId
-      ? `https://www.youtube.com/watch?v=${item.youtubeId}`
-      : null,
+    alt: item.alt,
+    src: item.image.path,
   }));
 
 export function hasGalleryPhotos() {
-  return galleryImages.length > 0;
+  return galleryPhotos.length > 0;
 }
 
 const galleryVideoList = [
@@ -97,5 +66,3 @@ export const galleryVideos = galleryVideoList.map((video) => ({
 export function hasGalleryVideos() {
   return galleryVideos.length > 0;
 }
-
-export { nextGalleryImageId };

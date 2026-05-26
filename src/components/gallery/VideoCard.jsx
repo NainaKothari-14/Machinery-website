@@ -1,9 +1,7 @@
-import MediaImage from "../common/MediaImage";
-
 function VideoCard({ video }) {
   return (
-    <div className="overflow-hidden border border-gray-200 bg-white">
-      <div className="aspect-video border-b-4 border-brand-500 bg-black">
+    <div className="glass-card overflow-hidden">
+      <div className="aspect-video overflow-hidden rounded-t-2xl border-b-2 border-brand-500/80 bg-black">
         <iframe
           src={video.embedUrl}
           title={video.title}

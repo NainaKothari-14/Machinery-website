@@ -51,6 +51,36 @@
   }
 }
 
+@keyframes float-gentle {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.45;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
 .animate-fade-up {
   animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
@@ -63,12 +93,25 @@
   animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.24s both;
 }
 
+.animate-fade-up-delay-3 {
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.36s both;
+}
+
 .animate-slide-in-right {
   animation: slide-in-right 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
 }
 
 .animate-scroll-hint {
   animation: scroll-hint 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float-gentle 3s ease-in-out infinite;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s ease-out infinite;
+  transform-origin: center center;
 }
 
 .stagger-1 {
@@ -82,4 +125,25 @@
 }
 .stagger-4 {
   animation-delay: 0.2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-fade-up-delay,
+  .animate-fade-up-delay-2,
+  .animate-fade-up-delay-3,
+  .animate-slide-in-right,
+  .animate-scroll-hint,
+  .animate-float,
+  .animate-pulse-ring {
+    animation: none;
+  }
+
+  .glass-card:hover,
+  .card-project:hover,
+  .btn-primary:hover,
+  .btn-outline-light:hover,
+  .btn-dark:hover {
+    transform: none;
+  }
 }

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaEnvelope, FaMapMarkerAlt, FaPhone, FaWhatsapp } from "react-icons/fa";
+import SiteLogo from "../common/SiteLogo";
 import SocialLinks from "../common/SocialLinks";
 import { company } from "../../content/company";
 import { navLinks } from "../../content/navigation";
@@ -8,26 +9,14 @@ function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-surface-950 text-gray-400">
+    <footer className="border-t border-white/10 bg-surface-950 text-gray-400">
       <div className="container-main grid gap-10 section-padding-sm sm:grid-cols-2 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-4">
-          <div className="flex items-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center bg-brand-500 font-display text-xl font-bold text-black">
-              M
-            </span>
-            <div>
-              <h3 className="font-display text-lg font-bold uppercase text-white">
-                {company.name}
-              </h3>
-              <p className="text-[10px] uppercase tracking-widest text-gray-600">
-                {company.city}, Maharashtra
-              </p>
-            </div>
-          </div>
-          <p className="mt-4 text-sm leading-relaxed">{company.footerBlurb}</p>
+          <SiteLogo variant="footer" linked={false} />
+          <p className="mt-5 text-sm leading-relaxed">{company.footerBlurb}</p>
           <p className="mt-2 text-sm text-gray-500">{company.addressShort}</p>
           <div className="mt-6">
-            <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-gray-600">
+            <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-gray-500">
               Follow us
             </p>
             <SocialLinks variant="dark" />
@@ -92,11 +81,11 @@ function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container-main flex flex-col items-center justify-between gap-2 py-5 text-center text-xs uppercase tracking-wider sm:flex-row sm:text-left">
-          <p>
+        <div className="container-main flex flex-col items-center justify-between gap-2 py-5 text-center text-xs uppercase tracking-wider text-gray-500 sm:flex-row sm:text-left">
+          <p className="text-gray-400">
             © {year} {company.name}
           </p>
-          <p className="text-gray-600">{company.workingHours}</p>
+          <p>{company.workingHours}</p>
         </div>
       </div>
     </footer>

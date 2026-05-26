@@ -3,18 +3,47 @@ import { FaPhone, FaWhatsapp } from "react-icons/fa";
 import PageMeta from "../components/common/PageMeta";
 import PageBanner from "../components/common/PageBanner";
 import QuoteForm from "../components/contact/QuoteForm";
-import MachineGallery from "../components/machine/MachineGallery";
+import { MachinePhoto, MachineVideo } from "../components/machine/MachineGallery";
 import MachineSpecs from "../components/machine/MachineSpecs";
 import { company } from "../content/company";
 import { getMachineById, getMachineDetailMedia } from "../content/machines";
 import { getQuoteWhatsAppMessage, openWhatsApp } from "../services/whatsappService";
 
+function MachineDetailInfo({ machine, className = "" }) {
+  return (
+    <div className={className}>
+      <p className="text-sm leading-relaxed sm:text-base">{machine.description}</p>
+      <div className="btn-group-responsive mt-6">
+        <button
+          type="button"
+          className="btn-primary"
+          onClick={() => openWhatsApp(getQuoteWhatsAppMessage(machine.name))}
+        >
+          <FaWhatsapp /> WhatsApp price
+        </button>
+        <a href={`tel:${company.phone.replace(/\s/g, "")}`} className="btn-dark">
+          <FaPhone /> Call
+        </a>
+      </div>
+      {machine.applications?.length > 0 && (
+        <ul className="mt-8 space-y-2.5 border-t border-gray-200 pt-6">
+          {machine.applications.map((app) => (
+            <li
+              key={app}
+              className="flex gap-3 text-sm before:mt-2 before:h-1 before:w-3 before:bg-brand-500 before:content-['']"
+            >
+              {app}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
 function MachineDetails() {
   const { id } = useParams();
   const machine = getMachineById(id);
-
-  const media = machine ? getMachineDetailMedia(machine) : { type: "none" };
-  const hasMedia = media.type !== "none";
 
   if (!machine) {
     return (
@@ -26,6 +55,8 @@ function MachineDetails() {
       </div>
     );
   }
+
+  const media = getMachineDetailMedia(machine);
 
   return (
     <>
@@ -40,47 +71,24 @@ function MachineDetails() {
       />
 
       <section className="section-light section-padding">
-        <div className="container-main">
-          <div
-            className={`grid gap-10 lg:gap-14 ${
-              hasMedia ? "lg:grid-cols-2" : "max-w-3xl"
-            }`}
-          >
-            {hasMedia && <MachineGallery machine={machine} />}
-
-            <div>
-              <p className="text-sm leading-relaxed sm:text-base">{machine.description}</p>
-              <div className="btn-group-responsive mt-6">
-                <button
-                  type="button"
-                  className="btn-primary"
-                  onClick={() =>
-                    openWhatsApp(getQuoteWhatsAppMessage(machine.name))
-                  }
-                >
-                  <FaWhatsapp /> WhatsApp price
-                </button>
-                <a
-                  href={`tel:${company.phone.replace(/\s/g, "")}`}
-                  className="btn-dark"
-                >
-                  <FaPhone /> Call
-                </a>
-              </div>
-              <ul className="mt-8 space-y-2.5 border-t border-gray-200 pt-6">
-                {machine.applications.map((app) => (
-                  <li
-                    key={app}
-                    className="flex gap-3 text-sm before:mt-2 before:h-1 before:w-3 before:bg-brand-500 before:content-['']"
-                  >
-                    {app}
-                  </li>
-                ))}
-              </ul>
+        <div className="container-main space-y-10">
+          {media.hasPhoto ? (
+            <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-12">
+              <MachinePhoto machine={machine} />
+              <MachineDetailInfo machine={machine} />
             </div>
-          </div>
+          ) : media.hasVideo ? (
+            <div className="space-y-10">
+              <MachineVideo machine={machine} />
+              <MachineDetailInfo machine={machine} className="max-w-3xl" />
+            </div>
+          ) : (
+            <MachineDetailInfo machine={machine} className="max-w-3xl" />
+          )}
 
-          <div className="mt-14 grid gap-8 lg:grid-cols-2">
+          {media.hasPhoto && media.hasVideo && <MachineVideo machine={machine} />}
+
+          <div className="grid gap-8 border-t border-gray-200 pt-10 lg:grid-cols-2 lg:pt-14">
             <MachineSpecs specs={machine.specs} variant="light" />
             <QuoteForm machineName={machine.name} />
           </div>

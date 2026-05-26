@@ -8,29 +8,30 @@ function FeaturedMachines() {
   const { featuredMachines } = homeContent;
 
   return (
-    <section className="section-dark section-padding">
+    <section className="section-light section-padding border-t border-gray-200/60">
       <div className="container-main">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <div className="glass-panel flex flex-col gap-6 p-6 sm:flex-row sm:items-end sm:justify-between sm:p-8">
           <div>
-            <span className="eyebrow">{featuredMachines.eyebrow}</span>
+            <span className="eyebrow-light">{featuredMachines.eyebrow}</span>
             <div className="yellow-bar mt-4" />
-            <h2 className="heading-section mt-4 text-white">
+            <h2 className="heading-section mt-4 text-surface-900">
               {featuredMachines.title}
             </h2>
+            <p className="mt-3 max-w-2xl text-sm text-gray-600">
+              {featuredMachines.description}
+            </p>
           </div>
           <Link
             to={featuredMachines.button.link}
-            className="btn-outline-dark shrink-0 self-start sm:self-auto"
+            className="btn-outline-light shrink-0 self-start sm:self-center"
           >
             {featuredMachines.button.label}
             <FaArrowRight />
           </Link>
         </div>
-        <p className="mt-4 max-w-2xl text-sm text-gray-500">
-          {featuredMachines.description}
-        </p>
-        <div className="mt-10 sm:mt-12">
-          <MachineGrid machines={getFeaturedMachines()} variant="dark" />
+
+        <div className="mt-8 sm:mt-10">
+          <MachineGrid machines={getFeaturedMachines()} variant="light" />
         </div>
       </div>
     </section>

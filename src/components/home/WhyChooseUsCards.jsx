@@ -14,7 +14,7 @@ function WhyChooseUsCards() {
           {whyChooseUs.items.map((item) => (
             <div
               key={item.id}
-              className="card-light border-t-4 border-t-brand-500 p-6 sm:p-8"
+              className="glass-card border-t-4 border-t-brand-500 p-6 sm:p-8"
             >
               <h3 className="font-display text-lg font-bold uppercase text-surface-900">
                 {item.title}
