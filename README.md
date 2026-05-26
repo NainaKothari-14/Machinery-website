@@ -1,16 +1,23 @@
-# React + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<img src="https://raw.githubusercontent.com/NainaKothari-14/Machinery-website/main/IMG-20260526-WA0008.jpg" alt="Mahavir Pharma Machinery" width="60" align="center" />    <h1>Mahavir Pharma Machinery</h2>
+<br/>
+A showcase website for **Mahavir Pharma Machinery** — manufacturer of pharmaceutical bottle sealing, filling, labelling & packing machines based in Vasai Virar, Maharashtra.
 
-Currently, two official plugins are available:
+<br/>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+[![Live Site](https://img.shields.io/badge/Live%20Site-mahavir--pharma--machinery.vercel.app-E8520A?style=for-the-badge&logo=vercel&logoColor=white)](https://mahavir-pharma-machinery.vercel.app)
 
-## React Compiler
+<br/>
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+![React](https://img.shields.io/badge/React_19-20232A?style=flat-square&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite_8-646CFF?style=flat-square&logo=vite&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router_7-CA4245?style=flat-square&logo=react-router&logoColor=white)
+![Vercel](https://img.shields.io/badge/Deployed-Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
 
-## Expanding the ESLint configuration
+<br/>
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+![Demo](https://raw.githubusercontent.com/NainaKothari-14/Machinery-website/main/demo.png)
+
+</div>
